@@ -16,7 +16,7 @@ namespace MergePdf
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmWordToPdf());
+            Application.Run(new FrmFileMgr());
         }
     }
 }

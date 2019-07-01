@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -39,6 +41,9 @@
     <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
       <HintPath>packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
     </Reference>
+    <Reference Include="SautinSoft.PdfFocus, Version=7.0.3.29, Culture=neutral, PublicKeyToken=0b79b934109b3e9e, processorArchitecture=MSIL">
+      <HintPath>packages\sautinsoft.pdffocus.7.0.3.29\lib\net461\SautinSoft.PdfFocus.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,6 +60,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmFileMgr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFileMgr.Designer.cs">
+      <DependentUpon>FrmFileMgr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImageToPdf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImageToPdf.Designer.cs">
+      <DependentUpon>FrmImageToPdf.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLoadingConversion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +84,12 @@
     <Compile Include="FrmMergePdf.Designer.cs">
       <DependentUpon>FrmMergePdf.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPdfToWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPdfToWord.Designer.cs">
+      <DependentUpon>FrmPdfToWord.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmWordToPdf.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,11 +98,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmFileMgr.resx">
+      <DependentUpon>FrmFileMgr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImageToPdf.resx">
+      <DependentUpon>FrmImageToPdf.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLoadingConversion.resx">
       <DependentUpon>FrmLoadingConversion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMergePdf.resx">
       <DependentUpon>FrmMergePdf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPdfToWord.resx">
+      <DependentUpon>FrmPdfToWord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmWordToPdf.resx">
       <DependentUpon>FrmWordToPdf.cs</DependentUpon>

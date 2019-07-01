@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace MergePdf
 {
@@ -42,12 +43,26 @@ namespace MergePdf
         {
             RemoveFile();
         }
-
+        private void ButtonClear_Click(object sender, EventArgs e)
+        {
+            fileList.Clear();
+            listBoxFileList.Items.Clear();
+        }
 
         private void ContextMenuStripOne_Opening(object sender, CancelEventArgs e)
         {
             if (listBoxFileList.SelectedItems.Count == 0)
                 e.Cancel = true;
+        }
+
+        private void ListBoxFileList_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.All;
+        }
+
+        private void ListBoxFileList_DragDrop(object sender, DragEventArgs e)
+        {
+            AddFileToList(e);
         }
 
         /**
@@ -112,6 +127,20 @@ namespace MergePdf
             }
         }
 
-        
+        /**
+         * this method is used to update the file list when a file is drag dropped into the listbox
+         */
+        private void AddFileToList(DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+            foreach (string file in files)
+            {
+                if (".pdf" == Path.GetExtension(file))
+                {
+                    fileList.Add(file);
+                    listBoxFileList.Items.Add(file);
+                }
+            }
+        }
     }
 }

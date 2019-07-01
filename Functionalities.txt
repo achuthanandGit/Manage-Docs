@@ -1,0 +1,7 @@
+Functions :-
+
+1. Merge pdf		-> Done
+2. Word to pdf		-> Done
+3. Images to pdf		-> Done
+4. Merge images to pdf	-> Done
+5. Pdf to word		->

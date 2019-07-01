@@ -18,7 +18,10 @@ namespace MergePdf
         {
             InitializeComponent();
         }
-
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
         private void ButtonConvert_Click(object sender, EventArgs e)
         {
             UploadAndConvert();
@@ -39,7 +42,6 @@ namespace MergePdf
                 if (saveWordDoc.ShowDialog() == DialogResult.OK)
                 {   
                     objWorPdf.OutputLocation = saveWordDoc.FileName;
-                    //objWorPdf.Word2PdfCOnversion();
                     using (FrmLoadingConversion frm = new FrmLoadingConversion(ConvertFile))
                     {
                         frm.ShowDialog(this);

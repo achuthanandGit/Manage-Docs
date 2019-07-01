@@ -39,19 +39,24 @@
             this.savePdf = new System.Windows.Forms.SaveFileDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.contextMenuStripOne.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxFileList
             // 
+            this.listBoxFileList.AllowDrop = true;
             this.listBoxFileList.ContextMenuStrip = this.contextMenuStripOne;
-            this.listBoxFileList.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxFileList.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxFileList.FormattingEnabled = true;
-            this.listBoxFileList.ItemHeight = 15;
+            this.listBoxFileList.HorizontalScrollbar = true;
+            this.listBoxFileList.ItemHeight = 19;
             this.listBoxFileList.Location = new System.Drawing.Point(24, 129);
             this.listBoxFileList.Name = "listBoxFileList";
-            this.listBoxFileList.Size = new System.Drawing.Size(528, 184);
+            this.listBoxFileList.Size = new System.Drawing.Size(528, 175);
             this.listBoxFileList.TabIndex = 0;
+            this.listBoxFileList.DragDrop += new System.Windows.Forms.DragEventHandler(this.ListBoxFileList_DragDrop);
+            this.listBoxFileList.DragEnter += new System.Windows.Forms.DragEventHandler(this.ListBoxFileList_DragEnter);
             // 
             // contextMenuStripOne
             // 
@@ -72,18 +77,19 @@
             // buttonUpload
             // 
             this.buttonUpload.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUpload.Location = new System.Drawing.Point(293, 332);
+            this.buttonUpload.Location = new System.Drawing.Point(293, 319);
             this.buttonUpload.Name = "buttonUpload";
             this.buttonUpload.Size = new System.Drawing.Size(75, 33);
             this.buttonUpload.TabIndex = 1;
             this.buttonUpload.Text = "Upload";
             this.buttonUpload.UseVisualStyleBackColor = true;
+            this.buttonUpload.Visible = false;
             this.buttonUpload.Click += new System.EventHandler(this.ButtonUpload_Click);
             // 
             // buttonMerge
             // 
             this.buttonMerge.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMerge.Location = new System.Drawing.Point(387, 332);
+            this.buttonMerge.Location = new System.Drawing.Point(387, 319);
             this.buttonMerge.Name = "buttonMerge";
             this.buttonMerge.Size = new System.Drawing.Size(75, 33);
             this.buttonMerge.TabIndex = 2;
@@ -95,11 +101,11 @@
             // 
             this.labelNote.AutoSize = true;
             this.labelNote.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNote.Location = new System.Drawing.Point(21, 95);
+            this.labelNote.Location = new System.Drawing.Point(23, 95);
             this.labelNote.Name = "labelNote";
-            this.labelNote.Size = new System.Drawing.Size(295, 19);
+            this.labelNote.Size = new System.Drawing.Size(422, 19);
             this.labelNote.TabIndex = 3;
-            this.labelNote.Text = "Upload files in the order it need to merge.";
+            this.labelNote.Text = "Drag and drop files in the order it need to merge (only PDF).";
             // 
             // openPdf
             // 
@@ -122,7 +128,7 @@
             // buttonCancel
             // 
             this.buttonCancel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.Location = new System.Drawing.Point(477, 332);
+            this.buttonCancel.Location = new System.Drawing.Point(477, 319);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 33);
             this.buttonCancel.TabIndex = 5;
@@ -130,11 +136,23 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
+            // buttonClear
+            // 
+            this.buttonClear.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClear.Location = new System.Drawing.Point(24, 319);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(75, 33);
+            this.buttonClear.TabIndex = 6;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.ButtonClear_Click);
+            // 
             // FrmMergePdf
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 388);
+            this.ClientSize = new System.Drawing.Size(575, 372);
+            this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelNote);
@@ -162,6 +180,7 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripOne;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
+        private System.Windows.Forms.Button buttonClear;
     }
 }
 
